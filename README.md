@@ -79,7 +79,7 @@ composer install
 
 ### Passo 4: Configuração do Envio de E-mail
 
-- Configure as credenciais de envio de e-mail no arquivo  ``` config/app.php ```:
+- Configure as credenciais de envio de e-mail no arquivo  ``` config/app.php ``` na chave ``` email ```:
 #### Utilizei o smtp do gmail para o teste
 
 ```bash
