@@ -72,6 +72,8 @@ class TasksController extends AppController
             $task->user_id = $user->id;
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('Task Salva com sucesso'));
+
+                /** Notificacao via e-mail */
                 $this->send($user->email, 'Nova Tarefa', 'Você criou uma tarefa nova');
 
                 return $this->redirect(['action' => 'index']);
@@ -130,30 +132,6 @@ class TasksController extends AppController
             ->withBody($stream);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $task = $this->Tasks->newEmptyEntity();
-
-        /** Se for uma requisicao post */
-        if ($this->request->is('post')) {
-            $task = $this->Tasks->patchEntity($task, $this->request->getData());
-            if ($this->Tasks->save($task)) {
-                $this->Flash->success(__('The task has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The task could not be saved. Please, try again.'));
-        }
-
-        /** Se for uma requisicao GET */
-        $users = $this->Tasks->Users->find('list', limit: 200)->all();
-        $this->set(compact('task', 'users'));
-    }
 
     /**
      * Edit method
