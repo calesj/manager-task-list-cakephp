@@ -72,6 +72,7 @@ class TasksController extends AppController
             $task->user_id = $user->id;
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('Task Salva com sucesso'));
+                $this->send($user->email, 'Nova Tarefa', 'Você criou uma tarefa nova');
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -79,8 +80,6 @@ class TasksController extends AppController
         }
 
         $this->set(compact('user', 'task'));
-
-        $this->send($user->email, 'Nova Tarefa', 'Você criou uma tarefa nova');
 
         return $this->render('/Home/create', 'master');
     }

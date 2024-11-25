@@ -59,7 +59,7 @@ class TasksTable extends Table
     {
         $validator
             ->scalar('title')
-            ->maxLength('title', 255)
+            ->maxLength('title', 255, 'O título não pode ter mais que 255 caracteres')
             ->requirePresence('title', 'create')
             ->notEmptyString('title');
 
