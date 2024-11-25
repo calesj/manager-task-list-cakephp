@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Service\MailService;
 use Cake\Http\CallbackStream;
 use Cake\Http\Response;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -16,6 +17,8 @@ use Psr\Http\Message\MessageInterface;
  */
 class TasksController extends AppController
 {
+    use MailService;
+
     /**
      * Index method
      *
@@ -76,6 +79,8 @@ class TasksController extends AppController
         }
 
         $this->set(compact('user', 'task'));
+
+        $this->send($user->email, 'Nova Tarefa', 'Você criou uma tarefa nova');
 
         return $this->render('/Home/create', 'master');
     }
