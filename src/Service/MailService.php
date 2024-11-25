@@ -16,6 +16,7 @@ trait MailService
     public function send(string $to, string $subject, string $message): void
     {
         $mailer = new Mailer('default');
+        $mailer->setTransport('email');
         $mailer->setFrom('no-reply@example.com');
         $mailer->setTo($to);
         $mailer->setSubject($subject);

@@ -47,7 +47,7 @@ class TasksController extends AppController
         }
 
         $tasks = $this->paginate($query->where(['user_id' => $user->id]), [
-            'limit' => 7,
+            'limit' => 5,
             'order' => ['id' => 'desc'],
         ]);
 
