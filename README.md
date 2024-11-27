@@ -43,7 +43,7 @@ Nesta seção estão listados os materiais e recursos que foram utilizados como 
 Clone o repositório do GitHub para a sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/gerenciador-de-tarefas.git
+git clone https://github.com/calesj/manager-task-list-cakephp.git
 cd gerenciador-de-tarefas
 ```
 
