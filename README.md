@@ -44,7 +44,7 @@ Clone o repositório do GitHub para a sua máquina local:
 
 ```bash
 git clone https://github.com/calesj/manager-task-list-cakephp.git
-cd gerenciador-de-tarefas
+cd manager-task-list-cakephp
 ```
 
 ### Passo 2: Instalar as Dependências
